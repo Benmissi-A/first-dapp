@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {Web3Provider, web3Provider} from 'web3-hooks'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Web3Provider>
     <App />
+    </Web3Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

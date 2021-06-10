@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useContext } from 'react';
+import {Web3Context, web3Context} from'web3-hooks'
 function App() {
+ const [web3State, login]=useContext(Web3Context)
+ console.log(web3State)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hello world</h1>
+      <p>Metamask installed {web3State.isMetaMask ? "yes" : "no"}</p>
+      <p>web3 injected {web3State.isWeb3 ? "yes" : "no"}</p>
+      {!web3State.isLogged && (
+        <>
+          <button onClick={login}>login</button>
+        </>
+      )}
+      <p>Network id: {web3State.chainId}</p>
+      <p>Network name: {web3State.networkName}</p>
+      <p>Account: {web3State.account}</p>
+      <p>Balance: {web3State.balance}</p>
+    </>
   );
 }
 
