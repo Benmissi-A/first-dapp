@@ -17,7 +17,10 @@ const Counter = () => {
   const handleClickIncrement = async () => {
     try {
       console.log("trigger + count");
-      const currentCount = await counter.increment();
+      const tx = await counter.increment();
+      await tx.wait();
+       console.log("resolved + count");
+      const currentCount = await counter.counter();
       setCount(currentCount.toString());
     } catch (e) {
       console.log(e);
@@ -26,7 +29,10 @@ const Counter = () => {
   const handleClickDecrement = async () => {
     try {
       console.log("trigger - count");
-      const currentCount = await counter.decrement();
+      const tx = await counter.decrement();
+      await tx.wait();
+      console.log("resolved - count");
+      const currentCount = await counter.counter();
       setCount(currentCount.toString());
     } catch (e) {
       console.log(e);
