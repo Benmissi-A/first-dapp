@@ -1,5 +1,6 @@
-//deployed on Rinkeby
-export const counterAddress = '0x8847fc4b8671781a4a4beb45da1c29664721e53a'
+// Deployed on Rinkeby
+export const counterAddress = "0x1a0f3Db3B338F9425C02b6321c6A2d647964c331";
+
 export const counterAbi = [
   {
     inputs: [],
@@ -17,7 +18,7 @@ export const counterAbi = [
   },
   {
     inputs: [],
-    name: "counter",
+    name: "count",
     outputs: [
       {
         internalType: "int256",
